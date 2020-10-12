@@ -43,7 +43,7 @@ Task 3: Setup an HTTP load balancer
 		(Choose the default location)
 		
 	3.3 Create a managed instance group
-		gcloud compute instance-groups managed create nginx-group --base-instance-name nginx --size 2 --template nginx-template --target-pool nucleus-nginx-pool
+		gcloud compute instance-groups managed create nginx-group --base-instance-name nginx --size 2 --template nginx-template --target-pool nginx-pool
 
 		To View the instance 
 		gcloud compute instances list
@@ -57,7 +57,7 @@ Task 3: Setup an HTTP load balancer
 
 	3.5 Create a health check
 
-		gcloud compute forwarding-rules create nginx-1b --region us-east --ports=80 --target-pool nginx-pool		
+		gcloud compute forwarding-rules create nginx-1b --region us-east1 --ports=80 --target-pool nginx-pool		
                 gcloud compute forwarding-rules list 
 		gcloud compute http-health-checks create http-basic-check
 		gcloud compute instance-groups managed set-named=ports nginx-group --named-ports http:80
